@@ -28,10 +28,9 @@ def processcommand(c):
         webbrowser.open("https://chatgpt.com")
 
     elif c.lower().startswith("play"):
-        song=c.lower().split(" ")[1]
-        link=musicLibrary.music[song]
-        webbrowser.open(link)
-    
+        song=c.lower().replace("play", "").strip()
+        musicLibrary.play(song)
+        
     elif c.lower().startswith("news"):
         try:
             newsapi=os.getenv("NEWS_API_KEY")
